@@ -1,9 +1,7 @@
 const express = require('express')
 const mongodb = require('mongodb')
 const router = express.Router()
-
-const user = 'stephenj2k'
-const pass = 'qwerty123'
+const mongo = require('../secret/secret.js')
 
 router.get('/', async (req, res) => {
   var tracks = await loadCurrentQueue()
@@ -23,7 +21,7 @@ router.delete('/:_id', async(req, res) => {
 })
 
 var loadCurrentQueue = async() => {
-  const client = await mongodb.MongoClient.connect(`mongodb://${user}:${pass}@ds233571.mlab.com:33571/spotifam`, {useNewUrlParser: true})
+  const client = await mongodb.MongoClient.connect(`mongodb://${mongo.user}:${mongo.pass}@ds233571.mlab.com:33571/spotifam`, {useNewUrlParser: true})
   return client.db('spotifam').collection('tracks')
 }
 
