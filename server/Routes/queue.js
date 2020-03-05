@@ -3,6 +3,7 @@ const mongodb = require('mongodb')
 const router = express.Router()
 const mongo = require('../secret/secret.js')
 
+//Get all tracks from DB
 router.get('/', async (req, res) => {
   var tracks = await loadCurrentQueue()
   res.send(await tracks.find({}).toArray())
