@@ -1,7 +1,7 @@
 const express = require('express')
 const mongodb = require('mongodb')
 const router = express.Router()
-const mongo = require('../secret/secret.js')
+const mongo = require('../secret.js')
 
 //Get all tracks from DB
 router.get('/', async (req, res) => {
