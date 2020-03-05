@@ -23,13 +23,5 @@ router.get('/callback', function(req, res) {
   const user_token = getToken(res, code, redirect_uri)
 })
 
-/**
- * Token is recived in this url
-*/
-router.get('/token', function(req, res) {
-  const access_token = req.query.access_token
-  res.send(access_token)
-})
-
 
 module.exports = router
