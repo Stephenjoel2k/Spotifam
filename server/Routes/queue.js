@@ -1,11 +1,7 @@
 const express = require('express')
 const mongodb = require('mongodb')
 const router = express.Router()
-
-let mongo = {
-  user: 'stephenj2k',
-  pass: 'qwerty123'
-}
+const { loadCurrentQueue } = require('../Models/queue.js')
 
 //Get all tracks from DBs
 router.get('/', async (req, res) => {
@@ -25,9 +21,6 @@ router.delete('/:_id', async(req, res) => {
   res.status(201).send()
 })
 
-var loadCurrentQueue = async() => {
-  const client = await mongodb.MongoClient.connect(`mongodb://${mongo.user}:${mongo.pass}@ds233571.mlab.com:33571/spotifam`, {useNewUrlParser: true})
-  return client.db('spotifam').collection('tracks')
-}
+
 
 module.exports = router
