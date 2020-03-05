@@ -28,7 +28,7 @@ const getCode = (res, redirect_uri) => {
     }
     request.post(authOptions, async function(error, response, body) {
       var access_token = await body.access_token
-      let uri = process.env.FRONTEND_URI || 'http://localhost:8888/auth/token'
+      let uri = process.env.TOKEN_URI || 'http://localhost:8888/auth/token'
       res.redirect(uri + '?access_token=' + access_token)
     })
   }
