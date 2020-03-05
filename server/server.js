@@ -1,8 +1,8 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
-const auth = require('./routes/auth.js')
-const queue = require('./routes/queue.js')
+const auth = require('./Routes/auth.js')
+const queue = require('./Routes/queue.js')
 
 //Middleware
 app.use(bodyParser.json())
