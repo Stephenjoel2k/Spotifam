@@ -7,7 +7,7 @@ let mongo = {
   pass: 'qwerty123'
 }
 
-//Get all tracks from DB
+//Get all tracks from DBs
 router.get('/', async (req, res) => {
   var tracks = await loadCurrentQueue()
   res.send(await tracks.find({}).toArray())
