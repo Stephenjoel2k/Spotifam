@@ -6,6 +6,9 @@ module.exports = {
     proxy: {
       '/queue' : {
         target: 'http://localhost:8888/'
+      },
+      '/auth' : {
+        target: 'http://localhost:8888/'
       }
     }
   }

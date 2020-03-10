@@ -68,7 +68,7 @@ export default {
       this.tracks = await QueueService.getTracks()
     },
     async login(){
-      await window.location.replace('http://localhost:8888/auth/login')
+      window.location.replace('auth/login');
     }
   }
 }
