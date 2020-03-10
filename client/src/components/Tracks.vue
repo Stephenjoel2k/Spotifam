@@ -1,6 +1,11 @@
+//MAKE CHANGES SO THAT THE ACCESS TOKEN FUNCTION IS IN A NEW COMPONENT.
+//FIND A WAY TO DISPLAY IT AND FIND A WAY TO MAKE CALLS TO BACKEND FUNCTIONS.
+
 <template>
   <div class="container">
     <h1>Recently Recommended Songs</h1>
+    <button v-on:click="login">Login</button>
+    <p>Your access token is: {{ this.token }}</p>
     <div class="add-song">
       <label for="add-song">Look up songs</label>
       <br>
@@ -41,12 +46,17 @@ export default {
       tracks: [],
       error: '',
       title: '',
-      artist: ''
+      artist: '',
+      token: ''
     }
   },
   async created(){
     try{
       this.tracks = await QueueService.getTracks()
+      var url_string = window.location.href
+      var url = new URL(url_string)
+      var access_token = url.searchParams.get("access_token");
+      this.token = access_token
     }catch(err){
       this.error =  err.message
     }
@@ -59,6 +69,9 @@ export default {
     async deleteTrack(id){
       await QueueService.deleteTrack(id)
       this.tracks = await QueueService.getTracks()
+    },
+    async login(){
+      await window.location.replace('http://localhost:8888/auth/login')
     }
   }
 }
