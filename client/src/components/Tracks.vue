@@ -1,6 +1,3 @@
-//MAKE CHANGES SO THAT THE ACCESS TOKEN FUNCTION IS IN A NEW COMPONENT.
-//FIND A WAY TO DISPLAY IT AND FIND A WAY TO MAKE CALLS TO BACKEND FUNCTIONS.
-
 <template>
   <div class="container">
     <h1>Recently Recommended Songs</h1>
